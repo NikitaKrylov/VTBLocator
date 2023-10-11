@@ -40,8 +40,8 @@ class MapKitService(val context: Context, val map: Map) {
 
         }
 
-        override fun onDrivingRoutesError(p0: com.yandex.runtime.Error) {
-            TODO("Not yet implemented")
+        override fun onDrivingRoutesError(error: com.yandex.runtime.Error) {
+            Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show()
         }
 
     }
