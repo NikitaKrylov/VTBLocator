@@ -1,18 +1,18 @@
 package com.example.misisvtbhack.components
 
 import android.view.View
-import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.misisvtbhack.BankBranchAdapter
+import com.example.misisvtbhack.MapViewModel
 import com.example.misisvtbhack.data.BankBranch
 import com.example.misisvtbhack.databinding.BottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-class BottomSheetController(view: View) {
+class BottomSheetController(view: View, mapService: MapKitService, viewModel: MapViewModel, owner: LifecycleOwner) {
     private val bottomSheetBehavior = BottomSheetBehavior.from(view)
     private val binding = BottomSheetBinding.bind(view)
-    private val _adapter = BankBranchAdapter()
+    private val _adapter = BankBranchAdapter(viewModel, mapService, owner, mapService::lazyBuildRoute)
 
     fun hide(){
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
