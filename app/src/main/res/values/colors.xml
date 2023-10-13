@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="mainLine">#78B9FF</color>
+    <color name="mainLineBorder">#2375E1</color>
+
+    <color name="secondaryLine">#7e8791</color>
+    <color name="secondaryLineBorder">#292a2b</color>
 </resources>

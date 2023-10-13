@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,34 +19,159 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingHorizontal="10dp"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp">
 
-                        <TextView
-                            android:id="@+id/title"
+                        <ImageView
+                            android:id="@+id/vtbLogo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Some title"
-                            android:textAlignment="center"
-                            android:textSize="30sp"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            android:src="@drawable/vtb_logo"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/newText"
+                        <ImageView
+                            android:id="@+id/vtbLogoImage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="New text"
-                            android:visibility="gone"
-                            android:textSize="20sp"
-                            app:layout_constraintTop_toBottomOf="@+id/title"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent">
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/vtb_logo_image"
+                            app:layout_constraintStart_toEndOf="@+id/vtbLogo"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                        </TextView>
+                        <TextView
+                            android:id="@+id/name"
+                            android:fontFamily="@font/vtbgroupui_demibold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#1D70CF"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/vtbLogo"
+                            tools:text="ДО «Бронницкий» Филиала № 7701 Банка ВТБ (ПАО)" />
+
+                        <ImageView
+                            android:id="@+id/timeIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:src="@drawable/time_logo"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+                        <TextView
+                            android:id="@+id/workTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="11:00-18"
+                            android:fontFamily="@font/vtbgroupui_regular"
+                            app:layout_constraintBottom_toBottomOf="@+id/timeIcon"
+                            app:layout_constraintStart_toEndOf="@+id/timeIcon"
+                            app:layout_constraintTop_toTopOf="@+id/timeIcon" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/vtbgroupui_regular"
+                            android:layout_marginTop="5dp"
+                            android:textSize="14sp"
+                            android:textColor="#1D70CF"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/timeIcon"
+                            tools:text="ул. Бахрушина, 32, стр. 1, Москва" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/detailBlock"
+                            android:layout_width="match_parent"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/address">
+
+                                <TextView
+                                    android:id="@+id/travelDistanceLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Расстояние"
+                                    android:fontFamily="@font/vtbgroupui_regular"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/travelDistance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/vtbgroupui_regular"
+                                    android:layout_marginStart="5dp"
+                                    android:text="..."
+                                    app:layout_constraintBottom_toBottomOf="@+id/travelDistanceLabel"
+                                    app:layout_constraintStart_toEndOf="@+id/travelDistanceLabel"
+                                    app:layout_constraintTop_toTopOf="@+id/travelDistanceLabel"
+                                    tools:text="1.4 км" />
+
+                                <TextView
+                                    android:id="@+id/travelTimeLabel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/vtbgroupui_regular"
+                                    android:layout_marginTop="5dp"
+                                    android:text="Время в пути"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/travelDistanceLabel" />
+
+                                <TextView
+                                    android:id="@+id/travelTime"
+                                    android:layout_width="wrap_content"
+                                    android:fontFamily="@font/vtbgroupui_regular"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="..."
+                                    app:layout_constraintBottom_toBottomOf="@+id/travelTimeLabel"
+                                    app:layout_constraintStart_toEndOf="@+id/travelTimeLabel"
+                                    app:layout_constraintTop_toTopOf="@+id/travelTimeLabel"
+                                    tools:text="35 мин" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/buildRouteBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="#2375E1"
+                                    android:minWidth="0dp"
+                                    android:minHeight="0dp"
+                                    android:fontFamily="@font/vtbgroupui_medium"
+                                    android:text="В путь"
+                                    app:cornerRadius="10dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/travelTimeLabel" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/moreInfo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="20dp"
+                                    android:backgroundTint="@android:color/transparent"
+                                    android:minWidth="0dp"
+                                    android:minHeight="0dp"
+                                    android:text="Смотреть"
+                                    android:fontFamily="@font/vtbgroupui_medium"
+                                    android:textColor="#2375E1"
+                                    app:cornerRadius="10dp"
+                                    app:layout_constraintEnd_toStartOf="@+id/buildRouteBtn"
+                                    app:layout_constraintTop_toBottomOf="@+id/travelTimeLabel"
+                                    app:strokeColor="#2375E1"
+                                    app:strokeWidth="2dp" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -1,5 +1,7 @@
-package com.example.misisvtbhack
+package com.example.misisvtbhack.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.misisvtbhack.components.LocationService

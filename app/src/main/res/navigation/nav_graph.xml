@@ -7,20 +7,23 @@
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.misisvtbhack.MapFragment"
+        android:name="com.example.misisvtbhack.ui.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" >
         <action
-            android:id="@+id/action_mapFragment_to_branchDetailFragment"
-            app:destination="@id/branchDetailFragment" />
+            android:id="@+id/action_mapFragment_to_officeDetailFragment"
+            app:destination="@id/officeDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/branchDetailFragment"
-        android:name="com.example.misisvtbhack.BranchDetailFragment"
-        android:label="fragment_branch_detail"
-        tools:layout="@layout/fragment_branch_detail" >
+        android:id="@+id/officeDetailFragment"
+        android:name="com.example.misisvtbhack.OfficeDetailFragment"
+        android:label="fragment_office_detail"
+        tools:layout="@layout/fragment_office_detail" >
         <action
-            android:id="@+id/action_branchDetailFragment_to_mapFragment"
+            android:id="@+id/action_officeDetailFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <argument
+            android:name="office"
+            app:argType="com.example.misisvtbhack.data.Office" />
     </fragment>
 </navigation>

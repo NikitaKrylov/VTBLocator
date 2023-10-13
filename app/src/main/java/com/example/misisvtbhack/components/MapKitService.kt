@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.misisvtbhack.MapViewModel
 import com.example.misisvtbhack.R
-import com.example.misisvtbhack.data.BankBranch
+import com.example.misisvtbhack.data.Office
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.RequestPoint
@@ -18,9 +18,7 @@ import com.yandex.mapkit.directions.driving.DrivingOptions
 import com.yandex.mapkit.directions.driving.DrivingRoute
 import com.yandex.mapkit.directions.driving.DrivingSession
 import com.yandex.mapkit.directions.driving.DrivingSession.DrivingRouteListener
-import com.yandex.mapkit.directions.driving.DrivingSummarySession
 import com.yandex.mapkit.directions.driving.DrivingSummarySession.DrivingSummaryListener
-import com.yandex.mapkit.directions.driving.Summary
 import com.yandex.mapkit.directions.driving.VehicleOptions
 import com.yandex.mapkit.directions.driving.VehicleType
 import com.yandex.mapkit.geometry.BoundingBox
@@ -28,7 +26,9 @@ import com.yandex.mapkit.geometry.Geometry
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.geo.PolylineIndex
 import com.yandex.mapkit.geometry.geo.PolylineUtils
+import com.yandex.mapkit.layers.GeoObjectTapListener
 import com.yandex.mapkit.map.CameraPosition
+import com.yandex.mapkit.map.GeoObjectSelectionMetadata
 import com.yandex.mapkit.map.Map
 import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.map.VisibleRegionUtils
@@ -48,9 +48,11 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
     private val drivingRouter = DirectionsFactory.getInstance().createDrivingRouter()
     private val routesCollection = map.mapObjects.addCollection()
     private val searchManager = SearchFactory.getInstance().createSearchManager(SearchManagerType.COMBINED)
+    val userPlaceMark = UserPlaceMark(context, map.mapObjects, Point(0.0000, 0.0000))
 
     private var _drivingSession: DrivingSession? = null
     private var _searchSession: Session? = null
+
 
     private val _drivingRouteListener = object : DrivingRouteListener {
         override fun onDrivingRoutes(drivingRoutes: MutableList<DrivingRoute>) {
@@ -84,8 +86,22 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
             Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show()
         }
     }
+    private val geoObjectTapListener = GeoObjectTapListener {
+        val point = it.geoObject.geometry.firstOrNull()?.point ?: return@GeoObjectTapListener true
+        map.cameraPosition.run {
+            val position = CameraPosition(point, zoom, azimuth, tilt)
+            map.move(position, Animation(Animation.Type.SMOOTH, 0.25f), null)
+        }
+
+        val selectionMetadata = it.geoObject.metadataContainer.getItem(GeoObjectSelectionMetadata::class.java)
+        map.selectGeoObject(selectionMetadata)
+        Toast.makeText(context, "Tapped ${it.geoObject.name} id = ${selectionMetadata.objectId}", Toast.LENGTH_SHORT).show()
+
+        true
+    }
     init {
         MapKitFactory.initialize(context)
+        map.addTapListener(geoObjectTapListener)
     }
     fun moveCamera(point: Point){
         map.move(
@@ -94,6 +110,7 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
             null
         )
     }
+
     fun zoom(updatedValue: Float){
         map.move(
             CameraPosition(
@@ -123,16 +140,16 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
 
     }
 
-    fun makePoints(branches: List<BankBranch>){
-        branches.forEach {
-            makePoint(it.point)
+    fun makePoints(offices: List<Office>){
+        offices.forEach {
+            makePoint(Point(it.latitude, it.longitude))
         }
 
     }
     fun makePoint(point: Point){
         val placemark = bankPinsCollection.addPlacemark().apply {
             geometry = point
-            setIcon(ImageProvider.fromBitmap(createBitmapFromVector(R.drawable.placemark)))
+            setIcon(ImageProvider.fromBitmap(createBitmapFromVector(context, R.drawable.placemark)))
         }
     }
 
@@ -179,17 +196,17 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
 
     private fun PolylineMapObject.styleMainRoute(){
         zIndex = 10f
-        setStrokeColor(context.getColor(android.R.color.darker_gray))
+        setStrokeColor(context.getColor(R.color.mainLine))
         strokeWidth = 5f
-        outlineColor = context.getColor(android.R.color.black)
+        outlineColor = context.getColor(R.color.mainLineBorder)
         outlineWidth = 3f
     }
 
     private fun PolylineMapObject.styleAlternativeRoute() {
         zIndex = 5f
-        setStrokeColor(context.getColor(android.R.color.holo_blue_dark))
+        setStrokeColor(context.getColor(R.color.secondaryLine))
         strokeWidth = 4f
-        outlineColor = context.getColor(android.R.color.holo_green_dark)
+        outlineColor = context.getColor(R.color.secondaryLineBorder)
         outlineWidth = 2f
     }
 
@@ -220,6 +237,18 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
             val targetPosition = currentPosition.advance(distance.toDouble())
             return (targetPosition.timeToFinish() - currentPosition.timeToFinish()).toFloat()
         }
+        fun createBitmapFromVector(context: Context, art: Int): Bitmap? {
+            val drawable = ContextCompat.getDrawable(context, art) ?: return null
+            val bitmap = Bitmap.createBitmap(
+                drawable.intrinsicWidth,
+                drawable.intrinsicHeight,
+                Bitmap.Config.ARGB_8888
+            ) ?: return null
+            val canvas = Canvas(bitmap)
+            drawable.setBounds(0, 0, canvas.width, canvas.height)
+            drawable.draw(canvas)
+            return bitmap
+        }
     }
 
 
@@ -230,18 +259,7 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
         map.move(cameraPosition, Animation(Animation.Type.SMOOTH, .5f), null) // move camera
     }
 
-    private fun createBitmapFromVector(art: Int): Bitmap? {
-        val drawable = ContextCompat.getDrawable(context, art) ?: return null
-        val bitmap = Bitmap.createBitmap(
-            drawable.intrinsicWidth,
-            drawable.intrinsicHeight,
-            Bitmap.Config.ARGB_8888
-        ) ?: return null
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return bitmap
-    }
+
 
 
 
