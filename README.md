@@ -2,8 +2,8 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="" alt="Logo" width="80" height="80" align ="center">
+  <a href="https://github.com/NikitaKrylov/VTBLocator">
+    <img src="logo end.png" alt="Logo" width="80" height="80" align ="center">
   </a>
 
 <h1 align="center">VTB Locator</h1>
