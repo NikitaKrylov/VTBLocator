@@ -15,6 +15,8 @@
 	<a align="center">Выбор неверного отделения или терминала</a>
 	<a align="center">Образование длинных очередей</a>
 	<a align="center">Трата сил, времени и нервов</a>
+<br />
+    <br />  
     <a href="https://github.com/NikitaKrylov/VTBLocator"><strong>Файлы »</strong></a>
 
     <a href="https://github.com/NikitaKrylov/VTBLocator/issues">Report Bug</a>
