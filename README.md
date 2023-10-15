@@ -9,16 +9,16 @@
 <h1 align="center">VTB Locator</h1>
 <h4 align="center">Cервис для подбора оптимального отделения банка, учитывая потребности клиента и доступность услуг.</h4>
 
-  <p align="center">
+   <p align="center">
     Для реализации проекта мы собрали команду новичков из университета МИСиС, имеющих опыт в разработке разного ПО.
 	Android приложение должно решить следующие проблемы:
 	<a align="center">Выбор неверного отделения или терминала</a>
 	<a align="center">Образование длинных очередей</a>
 	<a align="center">Трата сил, времени и нервов</a>
-<br />
-    <br />  
+    <br />
     <a href="https://github.com/NikitaKrylov/VTBLocator"><strong>Файлы »</strong></a>
-
+    <br />
+    <br />
     <a href="https://github.com/NikitaKrylov/VTBLocator/issues">Report Bug</a>
     ·
     <a href="https://github.com/NikitaKrylov/VTBLocator/issues">Request Feature</a>
