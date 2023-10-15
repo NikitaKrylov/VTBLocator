@@ -50,7 +50,10 @@ class MapFragment : Fragment() {
             setLocationUpdateListener()
         }
         mapService = MapKitService(requireContext(), map, viewModel, this::showOfficeDetail)
-        mapService.moveCamera(Point(55.607445, 37.532282))
+        viewModel.currentLocation.value?.let { loc ->
+            mapService.moveCamera(Point(loc.latitude, loc.longitude))
+
+        }
 
         officeListBottomSheet = OfficeListBottomSheet(view.findViewById(R.id.bottomSheet), mapService, viewModel, viewLifecycleOwner, parentFragmentManager, this::buildRoute, this::showOfficeDetail).apply {
             hide()
@@ -66,11 +69,6 @@ class MapFragment : Fragment() {
         viewModel.offices.observe(viewLifecycleOwner){ offices ->
             mapService.makePoints(offices)
 
-        }
-
-        viewModel.currentLocation.observe(viewLifecycleOwner){ location ->
-            //                mapService.userPlaceMark.move(Point(location.latitude, location.longitude))
-            mapService.userPlaceMark.move(Point(55.607445, 37.532282))
         }
 
         val atmsData = DataBuilder.getTAtmsData(requireContext())
@@ -108,10 +106,11 @@ class MapFragment : Fragment() {
             showOfficeList()
         }
 
-        viewModel.currentLocation.observe(viewLifecycleOwner){location ->
-            Point(55.607445, 37.532282)
-//                mapService.userPlaceMark.move(Point(location.latitude, location.longitude))
-            mapService.userPlaceMark.move(Point(55.607445, 37.532282))
+        viewModel.currentLocation.observe(viewLifecycleOwner){ loc ->
+
+            mapService.userPlaceMark.move(Point(loc.latitude, loc.longitude))
+            mapService.userPlaceMark.move(Point(loc.latitude, loc.longitude))
+
 
         }
 
@@ -131,6 +130,7 @@ class MapFragment : Fragment() {
 
         })
 
+        mapService.moveToCurrentPosition()
     }
 
     fun showOfficeDetail(office: Office){

@@ -142,7 +142,7 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
             map.move(
                 CameraPosition(
                     Point(it.latitude, it.longitude),
-                    12f,
+                    16f,
                     0f,
                     0f
                 ),

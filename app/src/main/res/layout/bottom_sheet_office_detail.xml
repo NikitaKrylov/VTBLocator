@@ -94,6 +94,7 @@
         <TextView
             android:id="@+id/address"
             android:layout_width="match_parent"
+            android:textColor="#7A7A7A"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/vtbgroupui_medium"
@@ -182,6 +183,8 @@
             android:id="@+id/metro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#7A7A7A"
+
             android:layout_marginStart="10dp"
             android:fontFamily="@font/vtbgroupui_medium"
             app:layout_constraintBottom_toBottomOf="@+id/metroIcon"
@@ -196,7 +199,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#3B83F2"
-            android:padding="0dp"
+            android:padding="10dp"
+
+            android:textSize="18sp"
+            android:textColor="@color/white"
             android:text="В путь"
             android:fontFamily="@font/vtbgroupui_bold"
             app:cornerRadius="7dp"
@@ -210,6 +216,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
             app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/white"
             app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="@+id/materialButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -230,9 +237,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:padding="7dp"
+                    android:textColor="#464646"
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/vtbgroupui_demibold"
                     android:text="Заказать такси"
+
                     android:textStyle="bold" />
             </LinearLayout>
 

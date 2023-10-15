@@ -48,9 +48,12 @@ class BankBranchAdapter(
                 moreInfo.setOnClickListener {
                     onDetailClick(data)
                 }
-                buildRouteBtn.setOnClickListener{
-                    onRouteClick(Point(55.607445, 37.532282), Point(data.latitude, data.longitude))
+                viewModel.currentLocation.value?.let{ loc ->
+                    buildRouteBtn.setOnClickListener{
+                        onRouteClick(Point(loc.latitude, loc.longitude), Point(data.latitude, data.longitude))
+                    }
                 }
+
             }
 
 
@@ -58,10 +61,8 @@ class BankBranchAdapter(
 
 
             binding.root.setOnClickListener {
-//                    onItemClick(Point(location.latitude, location.longitude), data.point)
-//                onItemClick(Point(55.728312, 37.609500), data.point)
                 viewModel.currentLocation.value?.let{ loc ->
-                    mapService.lazyBuildRoute(Point(55.607445, 37.532282), Point(data.latitude, data.longitude), routeSummaryListener)
+                    mapService.lazyBuildRoute(Point(loc.latitude, loc.longitude), Point(data.latitude, data.longitude), routeSummaryListener)
                 }
                 binding.detailBlock.isVisible = !binding.detailBlock.isVisible
             }

@@ -123,6 +123,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
+                                    android:textColor="#7A7A7A"
+
                                     android:text="Расстояние"
                                     android:fontFamily="@font/vtbgroupui_regular"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -132,6 +134,8 @@
                                     android:id="@+id/travelDistance"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textColor="#7A7A7A"
+
                                     android:fontFamily="@font/vtbgroupui_regular"
                                     android:layout_marginStart="5dp"
                                     android:text="..."
@@ -144,6 +148,8 @@
                                     android:id="@+id/travelTimeLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textColor="#7A7A7A"
+
                                     android:fontFamily="@font/vtbgroupui_regular"
                                     android:layout_marginTop="5dp"
                                     android:text="Время в пути"
@@ -156,6 +162,8 @@
                                     android:fontFamily="@font/vtbgroupui_regular"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
+                                    android:textColor="#7A7A7A"
+
                                     android:text="..."
                                     app:layout_constraintBottom_toBottomOf="@+id/travelTimeLabel"
                                     app:layout_constraintStart_toEndOf="@+id/travelTimeLabel"

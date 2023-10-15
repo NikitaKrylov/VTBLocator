@@ -39,17 +39,17 @@ class OfficeListFragment(mapService: MapKitService, val viewModel: MapViewModel,
         }
 
         viewModel.offices.observe(owner) { offices ->
-            val point = Point(55.607445, 37.532282)
+            viewModel.currentLocation.value?.let{ loc ->
+                val sortedBranches = BranchSorter().sortOffices(Point(loc.latitude, loc.longitude), offices)
+                _adapter.submitList(sortedBranches)
+            }
 
-            val sortedBranches = BranchSorter().sortOffices(point, offices)
-            _adapter.submitList(sortedBranches)
         }
         viewModel.currentLocation.observe(owner) { loc ->
-            val point = Point(55.607445, 37.532282)
             val banks = viewModel.offices.value
 
             banks?.let{
-                val sortedBranches = BranchSorter().sortOffices(point, it)
+                val sortedBranches = BranchSorter().sortOffices(Point(loc.latitude, loc.longitude), it)
                 _adapter.submitList(sortedBranches)
             }
         }

@@ -8,7 +8,7 @@ import com.example.misisvtbhack.databinding.BottomSheetOfficeDetailBinding
 import com.yandex.mapkit.geometry.Point
 import kotlin.coroutines.coroutineContext
 
-class OfficeDetailBottomSheet(view: View, viewModel: MapViewModel, val callTaxi: (from: Point, to: Point) -> Unit, val buildRoute: (from: Point, to: Point) -> Unit) : BottomSheet(view) {
+class OfficeDetailBottomSheet(view: View, val viewModel: MapViewModel, val callTaxi: (from: Point, to: Point) -> Unit, val buildRoute: (from: Point, to: Point) -> Unit) : BottomSheet(view) {
 
     private val binding = BottomSheetOfficeDetailBinding.bind(view)
 
@@ -20,12 +20,15 @@ class OfficeDetailBottomSheet(view: View, viewModel: MapViewModel, val callTaxi:
             schedule.text = data.openHours.joinToString(separator = "\n") {
                 "${it.days} ${it.hours}"
             }
-            binding.callTaxi.setOnClickListener{
-                callTaxi(Point(55.607445, 37.532282), Point(data.latitude, data.longitude))
+            viewModel.currentLocation.value?.let{loc ->
+                binding.callTaxi.setOnClickListener{
+                    callTaxi(Point(loc.latitude, loc.longitude), Point(data.latitude, data.longitude))
+                }
+                binding.materialButton.setOnClickListener{
+                    buildRoute(Point(loc.latitude, loc.longitude), Point(data.latitude, data.longitude))
+                }
             }
-            binding.materialButton.setOnClickListener{
-                buildRoute(Point(55.607445, 37.532282), Point(data.latitude, data.longitude))
-            }
+
         }
     }
 }
