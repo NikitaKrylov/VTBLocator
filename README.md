@@ -30,14 +30,18 @@
 <details>
   <summary>Cодержание >></summary>
   <ol>
-    <li>
+    <li>```html
       <a href="#о-проекте">О проекте</a>
-      <ul>
+	  ```
+      <ul>```html
         <li><a href="#инструменты">Инструменты</a></li>
+		```
       </ul>
     </li>
     <li>
+	```html
 	<a href="#Интеграции">Интеграции</a>
+	```
   </ol>
 </details>
 
