@@ -38,7 +38,7 @@
       </ul>
     </li>
     <li>
-	<a href="#getting-started">Интеграции</a>
+	<a href="#Интеграции">Интеграции</a>
 	</li>
   </ol>
 </details>
