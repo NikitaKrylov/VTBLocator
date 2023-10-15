@@ -76,8 +76,9 @@
 
 <h3>Мы интегрировали такие сервисы как:</h3>
 
-<a href="https://taxi.yandex.ru/"><h5 >Яндекс.Go - вызов такси от сервиса Яндекс</h5></a>
-<a  href="https://online.vtb.ru/login"><h5> ВТБ Онлайн - вход в личный кабинет ВТБ</h5></a>
+<a href="https://taxi.yandex.ru/">![ya.go]<h5 >Яндекс.Go - вызов такси от сервиса Яндекс</h5></a>
+<a  href="https://online.vtb.ru/login">![vtb.l]<h5> ВТБ Онлайн - вход в личный кабинет ВТБ</h5></a>
+
 
 
 <!-- USAGE EXAMPLES -->
