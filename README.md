@@ -84,6 +84,7 @@
 
 ## Usage
 ![useage-1]
+![useage-2]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,5 +132,5 @@ Project Link: [https://github.com/NikitaKrylov/VTBLocator](https://github.com/Ni
 [vtb.l]: https://i122.fastpic.org/big/2023/1015/05/8ded60a3840e9d9ccd14e0e426c1b605.png
 [vtb.l-url]:https://online.vtb.ru/login
 [useage-1]:https://i122.fastpic.org/big/2023/1015/2b/0c2a6b469639a6f026124997ead9fa2b.jpeg
-[useage-2]:
+[useage-2]:https://i122.fastpic.org/big/2023/1015/a5/e5317c43bd10d27693bde294bf917fa5.jpeg
 [useage-3]:
