@@ -70,16 +70,14 @@
 ## Интеграции
 
 <h3>Мы интегрировали такие сервисы как:</h3>
-1. Яндекс.Go - вызов такси от сервиса Яндекс
-2. ВТБ Онлайн - вход в личный кабинет ВТБ
+* [![YA.GO][ya.go]][ya.url]<a> Яндекс.Go - вызов такси от сервиса Яндекс</a>
+* [![VTB.L][vtb.l]][vtb.l-url]<a>ВТБ Онлайн - вход в личный кабинет ВТБ</a>
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+![useage-1]
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -88,7 +86,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
+- [] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
     - [ ] Nested Feature
@@ -100,22 +98,17 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Yaroslav - [@osyarik](https://t.me/osyarik)
+Timophey - [@timkoskos](https://t.me/timkoskos)
+Nikita - [@idoverchiviiloh](https://t.me/idoverchiviiloh)
+Andrey - [@yyyoner](https://t.me/yyyoner)
+Project Link: [https://github.com/NikitaKrylov/VTBLocator](https://github.com/NikitaKrylov/VTBLocator)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
 
 
 
@@ -129,3 +122,10 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [YMK-url]: https://yandex.ru/dev/maps/mapkit/?from=mapsapi
 [VTB]: https://i122.fastpic.org/big/2023/1015/9b/4b4b0890cc97330a19c5e5e09d6e4e9b.png
 [VTB-url]: https://developer.vtb.ru/
+[ya.go]: https://i122.fastpic.org/big/2023/1015/10/d3455cfe5e328fa28ad7e992fd27b810.png
+[ya.url]:https://taxi.yandex.ru/
+[vtb.l]:https://i122.fastpic.org/big/2023/1015/05/8ded60a3840e9d9ccd14e0e426c1b605.png
+[vtb.l-url]:https://online.vtb.ru/login
+[useage-1]:https://i122.fastpic.org/big/2023/1015/2b/0c2a6b469639a6f026124997ead9fa2b.jpeg
+[useage-2]:
+[useage-3]:
