@@ -18,7 +18,7 @@
         android:id="@+id/officeDetailFragment"
         android:name="com.example.misisvtbhack.OfficeDetailFragment"
         android:label="fragment_office_detail"
-        tools:layout="@layout/fragment_office_detail" >
+        tools:layout="@layout/bottom_sheet_office_detail" >
         <action
             android:id="@+id/action_officeDetailFragment_to_mapFragment"
             app:destination="@id/mapFragment" />

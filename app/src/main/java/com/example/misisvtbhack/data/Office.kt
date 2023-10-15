@@ -24,4 +24,5 @@ data class Office(
     val suoAvailability: String
 ) : Serializable {
     fun distanceTo(point: Point) = sqrt( (latitude - point.latitude).pow(2) + (longitude - point.longitude).pow(2) )
+    val point: Point get() = Point(latitude, longitude)
 }

@@ -4,6 +4,7 @@ import android.location.Location
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.misisvtbhack.data.Atm
 import com.example.misisvtbhack.data.Office
 import com.yandex.mapkit.directions.driving.DrivingRoute
 import com.yandex.mapkit.search.Response
@@ -23,7 +24,7 @@ class MapViewModel : ViewModel() {
     val searchResponse = MutableLiveData<Response>()
     val currentLocation = MutableLiveData<Location>()
     val offices = MediatorLiveData<List<Office>>()
-
+    val atms = MediatorLiveData<List<Atm>>()
     val filterData = MutableLiveData<FilterData>()
 
 }

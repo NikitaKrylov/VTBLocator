@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.misisvtbhack.R
 import com.example.misisvtbhack.components.LocationService
 import com.example.misisvtbhack.databinding.ActivityMainBinding
 import com.yandex.mapkit.MapKitFactory
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 
 //    override fun onStart() {

@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.misisvtbhack.MapViewModel
 import com.example.misisvtbhack.R
+import com.example.misisvtbhack.data.Atm
 import com.example.misisvtbhack.data.Office
 import com.yandex.mapkit.Animation
+import com.yandex.mapkit.GeoObject
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.RequestPoint
 import com.yandex.mapkit.RequestPointType
@@ -26,10 +28,13 @@ import com.yandex.mapkit.geometry.Geometry
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.geo.PolylineIndex
 import com.yandex.mapkit.geometry.geo.PolylineUtils
+import com.yandex.mapkit.layers.GeoObjectTapEvent
 import com.yandex.mapkit.layers.GeoObjectTapListener
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.GeoObjectSelectionMetadata
 import com.yandex.mapkit.map.Map
+import com.yandex.mapkit.map.MapObject
+import com.yandex.mapkit.map.MapObjectTapListener
 import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.map.VisibleRegionUtils
 import com.yandex.mapkit.search.Response
@@ -42,12 +47,12 @@ import com.yandex.runtime.Error
 import com.yandex.runtime.image.ImageProvider
 
 
-class MapKitService(val context: Context, val map: Map, val viewModel: MapViewModel) {
+class MapKitService(val context: Context, val map: Map, val viewModel: MapViewModel, openDetail: (office: Office) -> Unit) {
 
     private val bankPinsCollection = map.mapObjects.addCollection()
     private val drivingRouter = DirectionsFactory.getInstance().createDrivingRouter()
     private val routesCollection = map.mapObjects.addCollection()
-    private val searchManager = SearchFactory.getInstance().createSearchManager(SearchManagerType.COMBINED)
+    private val searchManager = SearchFactory.getInstance().createSearchManager(SearchManagerType.OFFLINE)
     val userPlaceMark = UserPlaceMark(context, map.mapObjects, Point(0.0000, 0.0000))
 
     private var _drivingSession: DrivingSession? = null
@@ -86,22 +91,30 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
             Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show()
         }
     }
-    private val geoObjectTapListener = GeoObjectTapListener {
-        val point = it.geoObject.geometry.firstOrNull()?.point ?: return@GeoObjectTapListener true
-        map.cameraPosition.run {
-            val position = CameraPosition(point, zoom, azimuth, tilt)
-            map.move(position, Animation(Animation.Type.SMOOTH, 0.25f), null)
+
+    private val mapObjectTapListener = MapObjectTapListener { mapObject, _ ->
+        val office = (mapObject.userData as? Office)
+        office?.let{
+            openDetail(it)
         }
-
-        val selectionMetadata = it.geoObject.metadataContainer.getItem(GeoObjectSelectionMetadata::class.java)
-        map.selectGeoObject(selectionMetadata)
-        Toast.makeText(context, "Tapped ${it.geoObject.name} id = ${selectionMetadata.objectId}", Toast.LENGTH_SHORT).show()
-
         true
     }
+//    private val geoObjectTapListener = GeoObjectTapListener {
+//        val point = it.geoObject.geometry.firstOrNull()?.point ?: return@GeoObjectTapListener true
+//        map.cameraPosition.run {
+//            val position = CameraPosition(point, zoom, azimuth, tilt)
+//            map.move(position, Animation(Animation.Type.SMOOTH, 0.25f), null)
+//        }
+//
+//        val selectionMetadata = it.geoObject.metadataContainer.getItem(GeoObjectSelectionMetadata::class.java)
+//        map.selectGeoObject(selectionMetadata)
+//        Toast.makeText(context, "Tapped ${it.geoObject.name} id = ${selectionMetadata.objectId}", Toast.LENGTH_SHORT).show()
+//
+//        true
+//    }
     init {
         MapKitFactory.initialize(context)
-        map.addTapListener(geoObjectTapListener)
+//        map.addTapListener(geoObjectTapListener)
     }
     fun moveCamera(point: Point){
         map.move(
@@ -142,14 +155,34 @@ class MapKitService(val context: Context, val map: Map, val viewModel: MapViewMo
 
     fun makePoints(offices: List<Office>){
         offices.forEach {
-            makePoint(Point(it.latitude, it.longitude))
+            makePoint(it)
         }
 
     }
-    fun makePoint(point: Point){
+
+    fun makePoint(office: Office){
+
         val placemark = bankPinsCollection.addPlacemark().apply {
-            geometry = point
+            geometry = office.point
             setIcon(ImageProvider.fromBitmap(createBitmapFromVector(context, R.drawable.placemark)))
+            addTapListener(mapObjectTapListener)
+            userData = office
+
+        }
+    }
+
+    fun makeAtmsPoints(atms: List<Atm>){
+        atms.forEach {
+            makePoint(it)
+        }
+    }
+    fun makePoint(atm: Atm){
+        val placemark = bankPinsCollection.addPlacemark().apply {
+            geometry = atm.point
+            setIcon(ImageProvider.fromBitmap(createBitmapFromVector(context, R.drawable.atms_logo)))
+            addTapListener(mapObjectTapListener)
+            userData = atm
+
         }
     }
 

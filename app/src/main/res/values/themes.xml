@@ -3,7 +3,12 @@
     <style name="Base.Theme.MISISVTBHack" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryDark">#3B83F2</item>
+
     </style>
 
-    <style name="Theme.MISISVTBHack" parent="Base.Theme.MISISVTBHack" />
+    <style name="Theme.MISISVTBHack" parent="Base.Theme.MISISVTBHack" >
+        <item name="colorPrimaryDark">#3B83F2</item>
+
+    </style>
 </resources>

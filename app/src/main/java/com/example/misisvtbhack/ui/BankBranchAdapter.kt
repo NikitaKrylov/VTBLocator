@@ -19,7 +19,8 @@ class BankBranchAdapter(
     private val viewModel: MapViewModel,
     private val mapService: MapKitService,
     private val owner: LifecycleOwner,
-    private val onItemClick: (from: Point, to: Point) -> Unit,
+    private val onRouteClick: (from: Point, to: Point) -> Unit,
+    private val onDetailClick: (office: Office) -> Unit
 
     ) : ListAdapter<Office, BankBranchAdapter.BankBranchViewHolder>(diffCalculator) {
 
@@ -40,12 +41,21 @@ class BankBranchAdapter(
 
         }
         fun bind(data: Office){
-            binding.address.text = data.address
-            binding.name.text = data.salePointName
+            binding.apply {
+                address.text = data.address
+                name.text = data.salePointName
 
-            binding.buildRouteBtn.setOnClickListener{
-                onItemClick(Point(55.607445, 37.532282), Point(data.latitude, data.longitude))
+                moreInfo.setOnClickListener {
+                    onDetailClick(data)
+                }
+                buildRouteBtn.setOnClickListener{
+                    onRouteClick(Point(55.607445, 37.532282), Point(data.latitude, data.longitude))
+                }
             }
+
+
+
+
 
             binding.root.setOnClickListener {
 //                    onItemClick(Point(location.latitude, location.longitude), data.point)
@@ -61,7 +71,7 @@ class BankBranchAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BankBranchViewHolder {
-        return BankBranchViewHolder(BankBranchCardBinding.inflate(LayoutInflater.from(parent.context)), onItemClick )
+        return BankBranchViewHolder(BankBranchCardBinding.inflate(LayoutInflater.from(parent.context)), onRouteClick )
     }
 
     override fun onBindViewHolder(holder: BankBranchViewHolder, position: Int) {
