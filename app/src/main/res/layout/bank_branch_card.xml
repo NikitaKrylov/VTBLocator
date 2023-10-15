@@ -67,8 +67,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:fontFamily="@font/vtbgroupui_regular"
-                            android:text="11:00-18"
+                            android:fontFamily="@font/vtbgroupui_medium"
+                            android:text="09:00-18:00"
+                            android:textColor="#7A7A7A"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="@+id/timeIcon"
                             app:layout_constraintStart_toEndOf="@+id/timeIcon"
@@ -78,14 +79,35 @@
                             android:id="@+id/address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/vtbgroupui_regular"
+                            android:fontFamily="@font/vtbgroupui_medium"
                             android:layout_marginTop="5dp"
                             android:textSize="14sp"
-                            android:textColor="#1D70CF"
+                            android:textColor="#7A7A7A"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/timeIcon"
                             tools:text="ул. Бахрушина, 32, стр. 1, Москва" />
+
+                        <TextView
+                            android:id="@+id/scaleTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/vtbgroupui_medium"
+                            android:text="Загруженность отделения"
+                            android:textColor="#1D70CF"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/address" />
+
+                        <ImageView
+                            android:id="@+id/scale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/green_scale"
+                            app:layout_constraintBottom_toBottomOf="@+id/scaleTitle"
+                            app:layout_constraintStart_toEndOf="@+id/scaleTitle"
+                            app:layout_constraintTop_toTopOf="@+id/scaleTitle" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/detailBlock"
@@ -94,7 +116,7 @@
                             android:layout_height="wrap_content"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/address">
+                            app:layout_constraintTop_toBottomOf="@+id/scaleTitle">
 
                                 <TextView
                                     android:id="@+id/travelDistanceLabel"

@@ -111,7 +111,7 @@
             android:textColor="#319820"
             app:layout_constraintTop_toBottomOf="@+id/address"
             tools:layout_editor_absoluteX="20dp"
-            tools:text="18:20-19-30" />
+            tools:text="09:00-18:00" />
 
         <ImageView
             android:id="@+id/clockIcon"
@@ -158,6 +158,27 @@
             app:layout_constraintTop_toBottomOf="@+id/schedule" />
 
         <TextView
+            android:id="@+id/scaleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/vtbgroupui_medium"
+            android:text="Загруженность отделения"
+            android:textColor="#1D70CF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/metroIcon" />
+
+        <ImageView
+            android:id="@+id/scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/green_scale"
+            app:layout_constraintBottom_toBottomOf="@+id/scaleTitle"
+            app:layout_constraintStart_toEndOf="@+id/scaleTitle"
+            app:layout_constraintTop_toTopOf="@+id/scaleTitle" />
+
+        <TextView
             android:id="@+id/metro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,9 +198,10 @@
             android:backgroundTint="#3B83F2"
             android:padding="0dp"
             android:text="В путь"
+            android:fontFamily="@font/vtbgroupui_bold"
             app:cornerRadius="7dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/metroIcon" />
+            app:layout_constraintTop_toBottomOf="@+id/scaleTitle" />
 
 
         <androidx.cardview.widget.CardView

@@ -52,7 +52,9 @@ class MapFragment : Fragment() {
         mapService = MapKitService(requireContext(), map, viewModel, this::showOfficeDetail)
         mapService.moveCamera(Point(55.607445, 37.532282))
 
-        officeListBottomSheet = OfficeListBottomSheet(view.findViewById(R.id.bottomSheet), mapService, viewModel, viewLifecycleOwner, parentFragmentManager, this::buildRoute, this::showOfficeDetail)
+        officeListBottomSheet = OfficeListBottomSheet(view.findViewById(R.id.bottomSheet), mapService, viewModel, viewLifecycleOwner, parentFragmentManager, this::buildRoute, this::showOfficeDetail).apply {
+            hide()
+        }
         officeDetailBottomSheet = OfficeDetailBottomSheet(view.findViewById(R.id.bottomSheetDetail), viewModel, this::callTaxi, this::buildRoute).apply {
             hide()
         }
@@ -138,7 +140,7 @@ class MapFragment : Fragment() {
     }
 
     fun showOfficeList(){
-        officeListBottomSheet.expand()
+        officeListBottomSheet.collapse()
         officeDetailBottomSheet.hide()
 
     }
