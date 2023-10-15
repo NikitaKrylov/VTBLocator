@@ -61,10 +61,6 @@
 <h5>Уведомления и обратная связь -приложение предоставляет возможность оставлять обратную связь, что позволяет постоянно улучшать качество обслуживания</h5>
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Инструменты
 
 * [![Andr][Android.dev]][Android-url]<a>Android Studio -  основная среда разработки</a>
@@ -72,7 +68,6 @@
 * [![Vue][VTB]][VTB-url]<a>VTB API - для рассчета загруженности отделений и взаимодействия с банком</a>
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Интеграции
 
@@ -85,11 +80,6 @@
 ![useage-1]
 ![useage-2]
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -101,9 +91,6 @@
 	- [ ] Реализаци приложения на iOS
 	- [ ] Реализаци приложения на Samsung Galaxy Watch
 
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
