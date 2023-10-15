@@ -22,7 +22,6 @@
     <a href="https://github.com/NikitaKrylov/VTBLocator/issues">Report Bug</a>
     ·
     <a href="https://github.com/NikitaKrylov/VTBLocator/issues">Request Feature</a>
-  </p>
 </div>
 
 
