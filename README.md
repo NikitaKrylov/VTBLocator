@@ -100,6 +100,7 @@ Yaroslav - [@osyarik](https://t.me/osyarik)
 Timophey - [@timkoskos](https://t.me/timkoskos)
 Nikita - [@idoverchiviiloh](https://t.me/idoverchiviiloh)
 Andrey - [@yyyoner](https://t.me/yyyoner)
+<br/>
 Project Link: [https://github.com/NikitaKrylov/VTBLocator](https://github.com/NikitaKrylov/VTBLocator)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
