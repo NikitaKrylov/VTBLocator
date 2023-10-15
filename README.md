@@ -122,9 +122,9 @@ Project Link: [https://github.com/NikitaKrylov/VTBLocator](https://github.com/Ni
 [YMK-url]: https://yandex.ru/dev/maps/mapkit/?from=mapsapi
 [VTB]: https://i122.fastpic.org/big/2023/1015/9b/4b4b0890cc97330a19c5e5e09d6e4e9b.png
 [VTB-url]: https://developer.vtb.ru/
-[ya.go]: img-rm/yalog.png
+[ya.go]:img-rm/yalog.png
 [ya.url]:https://taxi.yandex.ru/
-[vtb.l]: img-rm/vtblog.png
+[vtb.l]:img-rm/vtb.log
 [vtb.l-url]:https://online.vtb.ru/login
 [useage-1]:https://i122.fastpic.org/big/2023/1015/2b/0c2a6b469639a6f026124997ead9fa2b.jpeg
 [useage-2]:
