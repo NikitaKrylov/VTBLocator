@@ -7,10 +7,17 @@
   </a>
 
 <h1 align="center">VTB Locator</h1>
+<img alt="Static Badge" src="https://img.shields.io/badge/more_tech-5.0-2375E1">
+<img alt="Static Badge" src="https://img.shields.io/badge/ITAM-951fde">
+<img alt="Static Badge" src="https://img.shields.io/badge/MapKit-4.4.0-de1f1f">
+<img alt="Static Badge" src="https://img.shields.io/badge/AndroidStudio-2022.2.1-1fde5f?logo=https%3A%2F%2Favatars.mds.yandex.net%2Fget-lpc%2F1531919%2F77050676-691a-49b7-9b40-6c5f480ff19c%2Fwidth_480_q70">
+<img alt="Static Badge" src="https://img.shields.io/badge/not_supported-fc0303?logo=https%3A%2F%2Favatars.mds.yandex.net%2Fget-lpc%2F1531919%2F77050676-691a-49b7-9b40-6c5f480ff19c%2Fwidth_480_q70">
+
+
 <div><h3 align="center">Cервис для подбора оптимального отделения банка, учитывая потребности клиента и доступность услуг.</h3></div>
 
   <p align="center">
-    Для реализации проекта мы собрали команду новичков из университета МИСиС, имеющих опыт в разработке разного ПО.
+    Для реализации проекта мы собрали команду новичков из университета МИСиС, имеющих опыт в разработке и дизайне ПО.
 	Android приложение должно решить следующие проблемы:
 	<div align="center"><strong>Выбор неверного отделения или терминала.</strong></div>
 	<div align="center"><strong>Образование длинных очередей</strong></div>
@@ -27,20 +34,6 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Cодержание >></summary>
-  <ol>
-    <li>
-      <a href="#о-проекте">О проекте</a>
-      <ul>
-        <li><a href="#инструменты">Инструменты</a></li>	
-      </ul>
-    </li>
-	<a href="#Интеграции">Интеграции</a>
-  </ol>
-</details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -55,11 +48,11 @@
 
 
 ## Решение
-<div align="center"><strong>Интеграция в экосистему ВТБ - наше приложение становится неотъемлемой частью экосистемы компании ВТB, предоставляя клиентам единое удобное решение</strong></div>
-<div align="center"><strong>Оптимальный поиск отделений и банкоматов - клиенты могут искать ближайшие отделения и банкоматы с учетом загруженности и расстояния. Это позволяет им сэкономить время и минимизировать стресс от долгих ожиданий</h5>
-<div align="center"><strong>Вызов такси - для максимального комфорта клиентов, мы интегрировали функцию вызова такси, позволяя им добраться до выбранной точки назначения без лишних хлопот</strong></div>
-<div align="center"><strong>Построение маршрута - приложение предоставляет возможность не только найти оптимальное место для посещения, но и построить маршрут до него, что делает процесс обслуживания еще более удобным и эффективным</strong></div>
-<div align="center"><strong>Уведомления и обратная связь -приложение предоставляет возможность оставлять обратную связь, что позволяет постоянно улучшать качество обслуживания</strong></div>
+<div ><strong>Интеграция в экосистему ВТБ</strong> - наше приложение становится неотъемлемой частью экосистемы компании ВТB, предоставляя клиентам единое удобное решение</div>
+<div ><strong>Оптимальный поиск отделений и банкоматов</strong> - клиенты могут искать ближайшие отделения и банкоматы с учетом загруженности и расстояния. Это позволяет им сэкономить время и минимизировать стресс от долгих ожиданий
+<div ><strong>Вызов такси</strong> - для максимального комфорта клиентов, мы интегрировали функцию вызова такси, позволяя им добраться до выбранной точки назначения без лишних хлопот</div>
+<div ><strong>Построение маршрута</strong> - приложение предоставляет возможность не только найти оптимальное место для посещения, но и построить маршрут до него, что делает процесс обслуживания еще более удобным и эффективным</div>
+<div ><strong>Уведомления и обратная связь</strong> - приложение предоставляет возможность оставлять обратную связь, что позволяет постоянно улучшать качество обслуживания</div>
 
 
 ### Инструменты
@@ -77,7 +70,7 @@
 <a href="https://taxi.yandex.ru/">![ya.go]<h5 >Яндекс.Go - вызов такси от сервиса Яндекс</h5></a>
 <a  href="https://online.vtb.ru/login">![vtb.l]<h5> ВТБ Онлайн - вход в личный кабинет ВТБ</h5></a>
 
-## Usage
+## Интерфейс
 ![useage-1]
 ![useage-2]
 
@@ -96,10 +89,14 @@
 <!-- CONTACT -->
 ## Contact
 
-Yaroslav - [@osyarik](https://t.me/osyarik)
-Timophey - [@timkoskos](https://t.me/timkoskos)
-Nikita - [@idoverchiviiloh](https://t.me/idoverchiviiloh)
-Andrey - [@yyyoner](https://t.me/yyyoner)
+Yaroslav (Manager, presentation designer) - [@osyarik](https://t.me/osyarik)
+
+Timophey (Presentation/UX designer) - [@timkoskos](https://t.me/timkoskos)
+
+Nikita (Andoid developer) - [@idoverchiviiloh](https://t.me/idoverchiviiloh)
+
+Andrey (UI/UX designer) - [@yyyoner](https://t.me/yyyoner)
+
 <br/>
 Project Link: [https://github.com/NikitaKrylov/VTBLocator](https://github.com/NikitaKrylov/VTBLocator)
 
